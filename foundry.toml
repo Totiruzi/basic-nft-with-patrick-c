@@ -7,7 +7,7 @@ remappings=[
     "@foundry-devops=lib/foundry-devops/src/"
 ]
 fs_permissions = [
-    { access = "read", path = "./images/" },
+    { access = "read", path = "./img/" },
     { access = "read", path = "./broadcast" },
 ]
 ffi = true
