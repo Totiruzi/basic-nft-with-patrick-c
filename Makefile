@@ -5,6 +5,8 @@
 DEFAULT_ANVIL_KEY := 0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80
 DEFAULT_ZKSYNC_LOCAL_KEY := 0x7726827caac94a7f9e1b160f7ea819f172f7b6f9d2a97f992c38edeab82d4110
 
+ANVIL_NETWORK_ARGS_LOCAL := --rpc-url http://localhost:8545 --private-key $(ANVIL_PRIVATE_KEY)
+
 all: clean remove install update build
 
 # Clean the repo
@@ -47,6 +49,13 @@ deployMood:
 
 mintMoodNft:
 	@forge script script/Interactions.s.sol:MintMoodNft $(NETWORK_ARGS)
+
+mintMood:
+	cast send 0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512 "mintNft()" --private-key $(ANVIL_PRIVATE_KEY) --rpc-url http://localhost:8545
+#mintMood:
+#	cast send (addressOfTheContract) "mintNft()" $(ANVIL_NETWORK_ARGS_LOCAL)
+flipMood:
+	cast send 0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512 "flipMood(uint256)" 0 $(ANVIL_NETWORK_ARGS_LOCAL)
 
 flipMoodNft:
 	@forge script script/Interactions.s.sol:FlipMoodNft $(NETWORK_ARGS)
