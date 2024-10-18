@@ -51,11 +51,11 @@ mintMoodNft:
 	@forge script script/Interactions.s.sol:MintMoodNft $(NETWORK_ARGS)
 
 mintMood:
-	cast send 0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512 "mintNft()" --private-key $(ANVIL_PRIVATE_KEY) --rpc-url http://localhost:8545
+	cast send 0x5FbDB2315678afecb367f032d93F642f64180aa3 "mintNft()" --private-key $(ANVIL_PRIVATE_KEY) --rpc-url http://localhost:8545
 #mintMood:
 #	cast send (addressOfTheContract) "mintNft()" $(ANVIL_NETWORK_ARGS_LOCAL)
 flipMood:
-	cast send 0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512 "flipMood(uint256)" 0 $(ANVIL_NETWORK_ARGS_LOCAL)
+	cast send 0x5FbDB2315678afecb367f032d93F642f64180aa3 "flipMood(uint256)" 0 $(ANVIL_NETWORK_ARGS_LOCAL)
 
 flipMoodNft:
 	@forge script script/Interactions.s.sol:FlipMoodNft $(NETWORK_ARGS)
